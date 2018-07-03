@@ -1,0 +1,7 @@
+FROM centos:latest
+MAINTAINER arunbasakran03@gmail.com
+RUN yum -y update\
+    epel-release\
+    nginx
+EXPOSE 8280
+CMD ["systemctl", "nginx", "start"]
