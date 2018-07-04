@@ -1,7 +1,11 @@
 FROM centos:latest
 MAINTAINER arunbasakran03@gmail.com
+ENV nginx_conf /etc/nginx/nginx.conf
 RUN yum -y update\
     epel-release\
-    nginx
-EXPOSE 8280
-CMD ["systemctl", "nginx", "start"]
+    nginx*
+EXPOSE 8280 
+WORKDIR /var/run
+COPY /Users/Arun/docker-test/docker-files/nginx.conf ${nginx_conf}
+
+

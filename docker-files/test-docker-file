@@ -1,0 +1,10 @@
+FROM centos:latest
+RUN yum -y update
+RUN yum -y install \
+	epel-release \
+        *nginx*
+ENV NGINX_CONF /etc/nginx/nginx.conf
+WORKDIR /var/run
+EXPOSE 8280
+VOLUME ["nginx_data"]
+CMD [""service nginx start"]
